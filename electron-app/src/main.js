@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('node:path');
+const fs = require("fs")
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -46,6 +47,16 @@ app.on('window-all-closed', () => {
     app.quit();
   }
 });
+
+export const writeConfigToFile = () => {
+
+  try { 
+    fs.writeFileSync('myfile.txt', 'the text to write in the file', 'utf-8');
+  }
+  catch(e) { 
+    alert('Failed to save the file !'); 
+  }
+}
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.

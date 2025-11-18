@@ -51,7 +51,7 @@ root.render(
   <div>
     <div className="buttonsConfig">
       <h2>Button config</h2>
-      <div class="functionButtons">
+      <div className="functionButtons">
         <h4> Function buttons</h4>
         <Grid container spacing={2}>
           <Grid size={6}>
@@ -68,7 +68,7 @@ root.render(
           </Grid>
         </Grid>
       </div>
-      <div class="gameButtons">
+      <div className="gameButtons">
         <h4> Game buttons</h4>
         <Grid container spacing={2}>
           {/* 3 buttons */}
@@ -120,7 +120,7 @@ root.render(
         </Grid>
       </div>
     </div>
-    <div class="encoderConfig">
+    <div className="encoderConfig">
       <h2>Rotation encoder config</h2>
       <Grid container spacing={2}>
         <Grid size={6}>

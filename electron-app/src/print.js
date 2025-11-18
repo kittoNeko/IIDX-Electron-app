@@ -1,5 +1,5 @@
 const path = require('path');
-const fs = require('fs');
+const fs = require('browserify-fs');
 export default function printMe() {
     console.log('I get called from print.js!');
     try { 

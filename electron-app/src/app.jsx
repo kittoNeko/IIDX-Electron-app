@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Select from 'react-select'
 import { createRoot } from 'react-dom/client';  
-import { writeConfigToFile } from './main';
+// import { writeConfigToFile } from './main';
 
 const root = createRoot(document.body);
 const selectedButtons = ['','','','','','','','','','','']

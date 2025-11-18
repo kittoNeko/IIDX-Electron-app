@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Select from 'react-selecnpmt'
+import Select from 'react-select'
 import { createRoot } from 'react-dom/client';
 import Input from '@mui/material/Input';
 import { InputLabel } from '@mui/material';

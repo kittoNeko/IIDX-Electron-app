@@ -15,4 +15,14 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
+  resolve: {
+    fallback: {
+      "crypto-browserify" : require.resolve('crypto-browserify'),
+      "browserify" : require.resolve('browserify'),
+      "path": require.resolve("path-browserify"),
+      "fs":require.resolve("browserify-fs"),
+      "os":require.resolve("os-browserify/browser"),
+      "stream":require.resolve("stream-browserify"),
+    }
+  }
 };

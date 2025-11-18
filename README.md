@@ -1,1 +1,0 @@
-# IIDX-Electron-app

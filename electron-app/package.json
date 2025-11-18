@@ -33,19 +33,26 @@
     "babel-loader": "^10.0.0",
     "css-loader": "^6.11.0",
     "electron": "39.0.0",
+    "html-webpack-plugin": "^5.6.4",
     "node-loader": "^2.1.0",
     "style-loader": "^3.3.4"
   },
   "dependencies": {
-    "crypto-browserify": "^3.12.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/material": "^7.3.4",
+    "crypto-browserify": "^3.12.1",
     "electron-squirrel-startup": "^1.0.1",
+    "fs": "^0.0.1-security",
     "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-select": "^5.10.2"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }

@@ -5,6 +5,7 @@ import Input from '@mui/material/Input';
 import { InputLabel } from '@mui/material';
 import { Grid } from '@mui/material';
 import "./index.css";
+import printMe from './print';
 
 const root = createRoot(document.body);
 const selectedButtons = ['','','','','','','','','','','']
@@ -45,7 +46,8 @@ const optionsMachen = [
 ]
 function updateKeyArray(id, value){ 
   selectedButtons[id] = value;
-  console.log(selectedButtons)
+  console.log(selectedButtons);
+  printMe();
 }
 
 root.render(

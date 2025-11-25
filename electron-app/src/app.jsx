@@ -2,7 +2,7 @@ import * as React from 'react';
 import Select from 'react-select'
 import { createRoot } from 'react-dom/client';
 import Input from '@mui/material/Input';
-import { InputLabel } from '@mui/material';
+import { Button, InputLabel } from '@mui/material';
 import { Grid } from '@mui/material';
 import "./index.css";
 
@@ -48,8 +48,12 @@ function updateKeyArray(id, value){
   console.log(selectedButtons)
 }
 
+function SaveSettings(){
+
+}
+
 root.render(
-  <div>
+  <div onClick={console.log(optionsMachen)  }>
   <div className="buttonsConfig">
     <h2>Button config</h2>
     <div className="functionButtons">
@@ -135,6 +139,10 @@ root.render(
           <InputLabel> Counterclockwise </InputLabel>
           <Select options={optionsMachen} onChange={(e) => updateKeyArray(10, e.value)}/>
         </div>
+      </Grid>
+      <Grid size={12}>
+        <Button variant="contained" onClick={(e) => SaveSettings()}> Zapisz ustawienia do pliku </Button>
+
       </Grid>
     </Grid>
   </div>

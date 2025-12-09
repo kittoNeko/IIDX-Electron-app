@@ -1,15 +1,4 @@
 import json
-# import subprocess
-# import sys
-# from notifypy import Notify
-    
-# def install(package):
-#     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-# install("notify-py")
-# notification = Notify()
-# notification.title = "Cool Title"
-# notification.message = "Even cooler message."
-# notification.send()
 keys = []
 rotation = []
 with open("config.json") as json_data:

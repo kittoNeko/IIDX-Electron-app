@@ -9,6 +9,10 @@ import "./index.css";
 const root = createRoot(document.body);
 const selectedButtons = ['','','','','','','','','','','']
 
+let areCollisions = false;
+let areUnasigned = false;
+
+
 const optionsMachen = [
   { label: "A", value: "a"},
   { label:  "B", value: "b"},
@@ -43,17 +47,68 @@ const optionsMachen = [
   { label:  "left shift", value:  "KEY_LEFT_SHIFT"},
   { label:  "left ctrl", value:  "KEY_LEFT_CTRL"}
 ]
+
+function DetectCollision(){
+  let collisionDetector = selectedButtons.slice()
+  collisionDetector.sort()
+
+  areCollisions = false
+  for(let i = 0; i< collisionDetector.length - 1; i++){
+     if(collisionDetector[i] == collisionDetector[i+1]){
+      areCollisions = true;
+     }
+  }
+  if(areCollisions) console.log("collision detected")
+ }
+
+
+ function DetectUnasigned(){
+  areUnasigned = false;
+  for(let i = 0; i< selectedButtons.length; i++){
+     if(selectedButtons[i] == ""){
+      areUnasigned = true;
+     }
+  }
+  if(areUnasigned) console.log("unasigned element detected")
+ }
+
 function updateKeyArray(id, value){ 
   selectedButtons[id] = value;
   console.log(selectedButtons)
+  DetectCollision();
+  DetectUnasigned();
 }
+
+
 
 function SaveSettings(){
+  var blob = new Blob([selectedButtons.toString()], { type: 'text/plain' });
+  var link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'aaaa.txt';
+  link.click();
+}
+
+
+function ImportSettings(){
+ 
+}
+
+// function SaveSettings2(){
+//   var blob = new Blob([selectedButtons.toString()], { type: 'text/plain' });
+//   var link = document.createElement('a');
+//   link.href = URL.createObjectURL(blob);
+//   link.download = 'settings.txt';
+//   // link.click();
+// }
+
+function isUnasigned() {
 
 }
 
+
 root.render(
-  <div onClick={console.log(optionsMachen)  }>
+  <div>
   <div className="buttonsConfig">
     <h2>Button config</h2>
     <div className="functionButtons">
@@ -68,7 +123,7 @@ root.render(
         <Grid size={6}>
           <div className="input">
             <InputLabel> Function Button 2 </InputLabel>
-            <Select options={optionsMachen} onChange={(e) => updateKeyArray(1, e.value)}/>
+            <Select options={optionsMachen} onChange={(e) => updateKeyArray(1, e.value); isUnasigned()}/>
           </div>
         </Grid>
       </Grid>
@@ -76,7 +131,6 @@ root.render(
     <div className="gameButtons">
       <h4> Game buttons</h4>
       <Grid container spacing={2}>
-        {/* 3 buttons */}
         <Grid size={1}> </Grid>
         <Grid size={3}>
           <div className="input">
@@ -97,7 +151,6 @@ root.render(
           </div>
         </Grid>
         <Grid size={1}> </Grid>
-        {/* 4 buttons */}
         <Grid size={3}>
           <div className="input">
             <InputLabel> Button 1  </InputLabel>
@@ -141,8 +194,10 @@ root.render(
         </div>
       </Grid>
       <Grid size={12}>
-        <Button variant="contained" onClick={(e) => SaveSettings()}> Zapisz ustawienia do pliku </Button>
-
+        <p> Key shortcuts may collide so be careful when assigning them! </p>
+        <Button variant="contained" onClick={(e) => SaveSettings()}> Save to the file </Button>
+        {/* <Button variant="contained" onClick={(e) => SaveSettings2()}> Save to the file 2</Button> */}
+        <Button variant="contained" onClick={(e) => ImportSettings()}> Import settings </Button>
       </Grid>
     </Grid>
   </div>

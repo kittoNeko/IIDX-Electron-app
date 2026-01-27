@@ -45,7 +45,12 @@ const optionsMachen = [
 ]
 function updateKeyArray(id, value){ 
   selectedButtons[id] = value;
-  console.log(selectedButtons)
+  console.log(selectedButtons);
+  const { spawn } = require('child_process');
+  const pythonProcess = spawn('python',["./pythonScripts/testing.py"]);
+  pythonProcess.stdout.on('data', (data) => {
+    console.log(data)
+   });
 }
 const saveJson = async () => {
   const path = await window.electronAPI.saveJson(selectedButtons);

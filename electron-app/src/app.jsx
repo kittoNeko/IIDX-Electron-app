@@ -47,6 +47,10 @@ function updateKeyArray(id, value){
   selectedButtons[id] = value;
   console.log(selectedButtons)
 }
+const saveJson = async () => {
+  const path = await window.electronAPI.saveJson(selectedButtons);
+  console.log("Zapisano w:", path);
+};
 
 root.render(
   <div>
@@ -137,6 +141,9 @@ root.render(
         </div>
       </Grid>
     </Grid>
+  </div>
+  <div className='saveButtons'>
+    <button onClick={saveJson}>Save config to file</button>
   </div>
 </div>
 );

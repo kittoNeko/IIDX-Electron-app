@@ -2,7 +2,7 @@
 #define _CONFIGURATION_H_
 #include <stdint.h>
 const uint8_t button_pins[] = {13,12,11,10,9,8,7,6,5};
-const char buttons[] = {};
+const char button_keys[] = ['a','b','c','d','e','f','g','h','i'];
 #define NUM_BUTTONS (sizeof(button_pins)/sizeof(button_pins[0]))
 #define ENCODER_CLK_PIN 14
 #define ENCODER_DT_PIN  15

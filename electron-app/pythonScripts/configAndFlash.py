@@ -51,18 +51,18 @@ try:
     subprocess.run([
         "arduino-cli", "compile", "--fqbn", fqbn, sketch_path
     ], check=True)
-    print("[INFO] Compilation successful ✅", file=sys.stderr, flush=True)
+    print("[INFO] Compilation successful", file=sys.stderr, flush=True)
 except subprocess.CalledProcessError as e:
-    print(f"[ERROR] Compilation failed ❌ {e}", file=sys.stderr, flush=True)
+    print(f"[ERROR] Compilation failed {e}", file=sys.stderr, flush=True)
     sys.exit(1)
 try:
     print(f"[INFO] Flashing to {port} ...", file=sys.stderr, flush=True)
     subprocess.run([
         "arduino-cli", "upload", "-p", port, "--fqbn", fqbn, sketch_path
     ], check=True)
-    print("[INFO] Upload successful ✅", file=sys.stderr, flush=True)
+    print("[INFO] Upload successful", file=sys.stderr, flush=True)
 except subprocess.CalledProcessError as e:
-    print(f"[ERROR] Upload failed ❌ {e}", file=sys.stderr, flush=True)
+    print(f"[ERROR] Upload failed {e}", file=sys.stderr, flush=True)
     sys.exit(1)
 output = {
     "status": "ok",

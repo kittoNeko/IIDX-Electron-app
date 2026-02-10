@@ -22,11 +22,11 @@ void send_keyboard_for_buttons(uint16_t buttons) {
     bool now = buttons & mask;
     bool prev = previous_button_state & mask;
     if (!now && prev) {
-      char key = 'a' + i;
+      char key = button_keys[i];
       Keyboard.release(key);
     }
     if (now && !prev) {
-      char key = 'a' + i;
+      char key = button_keys[i];
       Keyboard.press(key);
     }
   }

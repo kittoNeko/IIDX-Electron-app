@@ -87,6 +87,13 @@ function SaveSettings(){
   link.href = URL.createObjectURL(blob);
   link.download = 'aaaa.txt';
   link.click();
+
+
+  let fs
+  const content = 'Some content!';
+  fs.writeFile('./bbb.txt', 'This is my text', function (err) {
+    if (err) throw err;               console.log('Results Received');
+  }); 
 }
 
 
@@ -123,7 +130,7 @@ root.render(
         <Grid size={6}>
           <div className="input">
             <InputLabel> Function Button 2 </InputLabel>
-            <Select options={optionsMachen} onChange={(e) => updateKeyArray(1, e.value); isUnasigned()}/>
+            <Select options={optionsMachen} onChange={(e) => updateKeyArray(1, e.value)}/>
           </div>
         </Grid>
       </Grid>
